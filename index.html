@@ -541,13 +541,14 @@
     <div class="ticker" id="ticker" aria-label="Latest NFL and NBA scores">
       <div class="ticker-label"><span class="tdot" id="tickerDot" aria-hidden="true"></span>Scores</div>
       <div class="ticker-track" id="tickerChips">
-        <span class="tchip"><span class="tl">NFL</span><span class="tt">SF 14 · MIN 7</span><span class="ts live">Q2 · Live</span></span>
-        <span class="tchip chi"><span class="tl">NBA</span><span class="tt">DEN 110 · CHI 106</span><span class="ts live">Q4 · Live</span></span>
-        <span class="tchip chi"><span class="tl">NFL</span><span class="tt">CHI 21 · NO 13</span><span class="ts">Final</span></span>
-        <span class="tchip"><span class="tl">NFL</span><span class="tt">BUF 26 · MIA 9</span><span class="ts">Final</span></span>
-        <span class="tchip"><span class="tl">NFL</span><span class="tt">DAL 51 · TEN 30</span><span class="ts">Final</span></span>
-        <span class="tchip"><span class="tl">NBA</span><span class="tt">SAS 114 · NO 91</span><span class="ts">Final</span></span>
-        <span class="tchip"><span class="tl">NBA</span><span class="tt">MIA 123 · OKC 113</span><span class="ts">Final</span></span>
+        <span class="tchip"><span class="tl">NFL</span><span class="tt">LAR 26 · GB 13</span><span class="ts">Final</span></span>
+        <span class="tchip chi"><span class="tl">NBA</span><span class="tt">CHI 107 · CHA 105</span><span class="ts">Final</span></span>
+        <span class="tchip chi"><span class="tl">NFL</span><span class="tt">CHI at DET</span><span class="ts">Thu 12:00 PM CT</span></span>
+        <span class="tchip"><span class="tl">NFL</span><span class="tt">PHI at DAL</span><span class="ts">Thu 3:30 PM CT</span></span>
+        <span class="tchip"><span class="tl">NFL</span><span class="tt">KC at BUF</span><span class="ts">Thu 7:20 PM CT</span></span>
+        <span class="tchip"><span class="tl">NBA</span><span class="tt">NYK 121 · CLE 102</span><span class="ts">Final</span></span>
+        <span class="tchip"><span class="tl">NBA</span><span class="tt">MIN 113 · OKC 106</span><span class="ts">Final</span></span>
+        <span class="tchip"><span class="tl">NBA</span><span class="tt">MEM 115 · LAC 97</span><span class="ts">Final</span></span>
       </div>
     </div>
 
@@ -653,7 +654,7 @@
       <div class="wrap">
         <div class="scores-head">
           <h2>Scoreboard <span class="thin">NFL · NBA</span></h2>
-          <p class="scores-updated" id="scoresUpdated">Sunday, Nov 22, 2026 · <strong>Updated 8:17 PM CT</strong> — snapshot: Sunday finals are in, Sunday Night Football and Bulls–Nuggets are live. Scores refresh when the page is updated. Sources: Reuters / Field Level Media, USA TODAY live blogs, Sportradar live fixtures, team feeds.</p>
+          <p class="scores-updated" id="scoresUpdated">Thursday, Nov 26, 2026 · <strong>Updated ~8:45 AM CT</strong> — snapshot: NFL Week 12 is underway with the Rams' Wednesday final in, Thanksgiving football runs all day, and the NBA finals from Wed Nov 25 are in. Scores refresh when the page is updated.</p>
         </div>
         <div class="scores-filters" role="tablist" aria-label="Filter scores by league">
           <button class="tab" type="button" data-score-filter="all" aria-selected="true">All scores</button>
@@ -662,10 +663,13 @@
         </div>
         <div class="scores-grid">
           <div class="league-card" data-league="nfl">
-            <h3>NFL <span class="wk" id="nflWk">Week 11 · Finals + SNF live</span></h3>
+            <h3>NFL <span class="wk" id="nflWk">Week 12 · Thanksgiving</span></h3>
             <ul class="game-list" id="nflGames">
-              <li class="live"><span class="teams"><span class="win">San Francisco 49ers</span> lead Minnesota Vikings <span class="live-tag">LIVE · Q2</span></span><span class="score">14–7</span><span class="note">Sunday Night Football from Mexico City — 49ers up with 7:28 left in the 2nd quarter at last update (8:17 PM CT). George Kittle opened the scoring; Aaron Jones answered for Minnesota.</span></li>
-              <li class="chi"><span class="teams"><span class="win">Chicago Bears</span> def. New Orleans Saints</span><span class="score">21–13</span><span class="note">Chicago's 5th straight win — Bears 8-2, tied atop the NFC North. Caleb Williams: 2 TD passes.</span></li>
+              <li><span class="teams"><span class="win">Los Angeles Rams</span> def. Green Bay Packers</span><span class="score">26–13</span><span class="note">Week 12 — Wednesday final.</span></li>
+              <li class="chi"><span class="teams">Chicago Bears at Detroit Lions</span><span class="score">12:00 PM</span><span class="note">Thanksgiving today — noon CT, CBS.</span></li>
+              <li><span class="teams">Philadelphia Eagles at Dallas Cowboys</span><span class="score">3:30 PM</span><span class="note">Thanksgiving today — 3:30 PM CT, Fox.</span></li>
+              <li><span class="teams">Kansas City Chiefs at Buffalo Bills</span><span class="score">7:20 PM</span><span class="note">Thanksgiving tonight — 7:20 PM CT, NBC.</span></li>
+              <li class="chi"><span class="teams"><span class="win">Chicago Bears</span> def. New Orleans Saints</span><span class="score">21–13</span><span class="note">Week 11 final — still the Bears' most recent final heading into Thanksgiving. Chicago's 5th straight win — Bears 8-2, tied atop the NFC North. Caleb Williams: 2 TD passes.</span></li>
               <li><span class="teams"><span class="win">Buffalo Bills</span> def. Miami Dolphins</span><span class="score">26–9</span></li>
               <li><span class="teams"><span class="win">Detroit Lions</span> def. Tampa Bay Buccaneers</span><span class="score">31–21</span></li>
               <li><span class="teams"><span class="win">Dallas Cowboys</span> def. Tennessee Titans</span><span class="score">51–30</span></li>
@@ -677,22 +681,17 @@
               <li><span class="teams"><span class="win">New York Giants</span> def. Jacksonville Jaguars</span><span class="score">23–18</span></li>
               <li><span class="teams"><span class="win">Houston Texans</span> def. Indianapolis Colts</span><span class="score">26–3</span></li>
             </ul>
-            <p class="scores-next"><strong>Still to play:</strong> Bengals at Commanders — Mon 8:15 PM CT. <strong>Thanksgiving:</strong> Bears at Lions — the 8-2 vs 8-2 NFC North clash.</p>
+            <p class="scores-next"><strong>Thanksgiving today:</strong> Bears at Lions — noon CT, CBS · Eagles at Cowboys — 3:30 PM CT, Fox · Chiefs at Bills — 7:20 PM CT, NBC. The remaining finals above are Week 11 — still the most recent finals for those teams until their Week 12 games kick off.</p>
           </div>
           <div class="league-card" data-league="nba">
-            <h3>NBA <span class="wk" id="nbaWk">Sunday · Finals + live</span></h3>
+            <h3>NBA <span class="wk" id="nbaWk">Wed, Nov 25 · Finals</span></h3>
             <ul class="game-list" id="nbaGames">
-              <li class="chi live"><span class="teams"><span class="win">Denver Nuggets</span> lead Chicago Bulls <span class="live-tag">LIVE · Q4</span></span><span class="score">110–106</span><span class="note">At the United Center — Nuggets up 4 with 8:13 left in the 4th at last update (8:17 PM CT). Not final. Jamal Murray 30 pts, Nikola Jokic 28, Buddy Hield 27 for Chicago. Denver led 105–95 after three.</span></li>
-              <li><span class="teams"><span class="win">Miami Heat</span> def. Oklahoma City Thunder</span><span class="score">123–113</span></li>
-              <li><span class="teams"><span class="win">Philadelphia 76ers</span> def. Milwaukee Bucks</span><span class="score">132–129</span></li>
-              <li><span class="teams"><span class="win">San Antonio Spurs</span> def. New Orleans Pelicans</span><span class="score">114–91</span><span class="note">Victor Wembanyama: 50 pts, 19 reb, 5 blk — a first in the three-point era.</span></li>
-              <li><span class="teams"><span class="win">Atlanta Hawks</span> def. Detroit Pistons</span><span class="score">107–97</span></li>
-              <li><span class="teams"><span class="win">Dallas Mavericks</span> def. LA Clippers</span><span class="score">110–100</span></li>
-              <li><span class="teams"><span class="win">Minnesota Timberwolves</span> def. Memphis Grizzlies</span><span class="score">104–95</span></li>
-              <li><span class="teams"><span class="win">New York Knicks</span> def. Portland Trail Blazers</span><span class="score">97–96</span></li>
-              <li><span class="teams"><span class="win">Sacramento Kings</span> def. Boston Celtics</span><span class="score">97–96</span></li>
+              <li class="chi"><span class="teams"><span class="win">Chicago Bulls</span> def. Charlotte Hornets</span><span class="score">107–105</span><span class="note">Matas Buzelis: 24 pts — Bulls now 6-12.</span></li>
+              <li><span class="teams"><span class="win">New York Knicks</span> def. Cleveland Cavaliers</span><span class="score">121–102</span></li>
+              <li><span class="teams"><span class="win">Minnesota Timberwolves</span> def. Oklahoma City Thunder</span><span class="score">113–106</span></li>
+              <li><span class="teams"><span class="win">Memphis Grizzlies</span> def. LA Clippers</span><span class="score">115–97</span></li>
             </ul>
-            <p class="scores-next"><strong>Also live tonight:</strong> Jazz vs Mavericks · Wizards vs Magic · Knicks vs Pacers · Warriors vs Celtics. <strong>Talking point for chat:</strong> Wembanyama's 50-piece and whether the Bulls can steal this one late — bring both to tomorrow's 4 PM stream.</p>
+            <p class="scores-next"><strong>Talking point for chat:</strong> Buzelis drops 24 and the Bulls edge Charlotte by two — bring it to today's 4 PM stream.</p>
           </div>
         </div>
       </div>
@@ -733,25 +732,37 @@
       <section class="block" id="affiliate" aria-label="Road to Affiliate">
         <div class="card">
           <h2>Road to Affiliate</h2>
-          <p class="section-sub" style="margin-bottom:16px">The grind is public. Every follow and every viewer-day moves the bar — this is where things stood after the Nov 22 stream.</p>
+          <p class="section-sub" style="margin-bottom:16px">The grind is public. Every follow and every viewer-day moves the bar — this is where things stood after the Nov 26 late-night stream.</p>
           <div class="prog">
             <div class="top"><span>Followers</span><span class="val">14 / 25</span></div>
             <div class="bar"><span style="width:56%"></span></div>
           </div>
           <div class="prog">
-            <div class="top"><span>Viewer-days banked (3+ average viewers)</span><span class="val">3 / 4</span></div>
-            <div class="bar"><span class="teal" style="width:75%"></span></div>
+            <div class="top"><span>Viewer-days banked (3+ average viewers)</span><span class="val">4 / 4</span></div>
+            <div class="bar"><span class="teal" style="width:100%"></span></div>
           </div>
           <div class="prog">
             <div class="top"><span>Best single-day average viewers (target: 3)</span><span class="val">4.0 — Nov 18</span></div>
             <div class="bar"><span class="gold" style="width:100%"></span></div>
           </div>
-          <p style="color:var(--muted);margin:4px 0 14px">Three viewer-days are banked: Nov 18 averaged 4.0, Nov 21 averaged 3.0, and Nov 22 averaged 3.0. Nov 22's stream ran 1h 53m and closed with 5 viewers in the room. One more strong day and the viewer-day requirement is done — showing up at 4 PM is genuinely the whole strategy.</p>
-          <aside class="aff-callout" aria-label="Next qualifying day">
-            <p class="headline"><strong>One more qualifying day to go</strong> — next shot Mon Nov 23, 4–6 PM CT.</p>
-            <p class="final">Nov 22 final — the stream that banked day #3: 3.0 average viewers · 1h 53m on air · 2 new subs · 4 clips.</p>
+          <p style="color:var(--muted);margin:4px 0 14px">All four viewer-days are banked: Nov 18 averaged 4.0, Nov 21 averaged 3.0, Nov 22 averaged 3.0, and Mon Nov 23 banked the 4th — 3h 24m, avg 4.0. Best single-day average is still 4.0 (Nov 18). Latest runs: Nov 24 — 3h 34m, avg 2.4 · Nov 25 stream-a-thon — 6h 36m, avg 3.0, max 6, 37 live views, 7 clips · Nov 26 late-night — 2h 1m, avg 1.7, max 7. Followers are now the only requirement left.</p>
+          <aside class="aff-callout" aria-label="Affiliate status">
+            <p class="headline"><strong>Viewer-days done — 4 of 4 banked</strong> on Mon Nov 23 (3h 24m, avg 4.0).</p>
+            <p class="final">Followers are the only remaining blocker: 14 of 25. Every other requirement is met — follows are the whole game now.</p>
           </aside>
           <a class="btn btn-accent" href="https://www.twitch.tv/1sthoodpresident" target="_blank" rel="noopener">Follow — it's free and it counts</a>
+        </div>
+      </section>
+
+      <!-- ================= TOP CLIPS ================= -->
+      <section class="block" id="clips" aria-label="Top Clips">
+        <div class="card">
+          <h2>Top Clips</h2>
+          <p class="section-sub" style="margin-bottom:12px">Checked Nov 26, 2026 — 35 clips total · 108 views total.</p>
+          <ol class="kv" style="list-style:none">
+            <li><span class="k">1 · Hood President: GTA VI</span><span class="v">14 views</span></li>
+            <li><span class="k">2 · Field Training</span><span class="v">11 views</span></li>
+          </ol>
         </div>
       </section>
 
@@ -847,7 +858,7 @@
             <span class="desc">VODs and longer cuts from the Leonida run.</span>
           </a>
           <div class="join-card">
-            <span class="name">PSN — GTA VI Crew</span><span class="handle">DiaMondNTheeRuf</span>
+            <span class="name">PSN — GTA VI Crew</span><span class="handle">HoodFBIAgent</span>
             <span class="desc">Add Prez on PlayStation to run with the crew in Leonida.</span>
             <button class="chip-btn" type="button" id="copyPsn" style="margin-top:10px">Copy PSN ID</button>
             <span class="desc" id="copyNote" aria-live="polite"></span>
@@ -1510,7 +1521,7 @@
         /* ---------- Copy PSN ---------- */
         var copyNote = document.getElementById("copyNote");
         document.getElementById("copyPsn").addEventListener("click", function () {
-          var id = "DiaMondNTheeRuf";
+          var id = "HoodFBIAgent";
           function done(ok) { copyNote.textContent = ok ? "Copied — see you in Leonida." : "Copy it manually: " + id; }
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(id).then(function () { done(true); }, function () { done(false); });
