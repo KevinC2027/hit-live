@@ -216,6 +216,39 @@
       .poll-opt.picked { border-color: var(--accent); }
       .vote-note { color: var(--muted); font-size: .9rem; margin: 6px 0 0; min-height: 1.3em; }
 
+      /* community polls */
+      .num-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+      .data-line { color: var(--muted); margin: 0 0 12px; font-size: .95rem; }
+      @media (max-width: 640px) { .num-strip { grid-template-columns: 1fr 1fr; } }
+
+      /* twitch pulse chart */
+      .pulse-list { display: flex; flex-direction: column; gap: 9px; }
+      .pulse-row { display: grid; grid-template-columns: 168px 1fr 86px; gap: 12px; align-items: center; font-weight: 600; }
+      .pulse-bar { height: 16px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+      .pulse-bar > span { display: block; height: 100%; background: var(--teal); }
+      .pulse-row:first-child .pulse-bar > span { background: var(--accent); }
+      .pulse-val { text-align: right; font-variant-numeric: tabular-nums; }
+      @media (max-width: 640px) { .pulse-row { grid-template-columns: 108px 1fr 74px; gap: 8px; font-size: .9rem; } }
+
+      /* drops badge ladder */
+      .badge-ladder { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .badge-ladder li { display: flex; align-items: center; gap: 10px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; font-weight: 600; }
+      .badge-day { font-family: "Barlow Condensed", sans-serif; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+      @media (max-width: 640px) { .badge-ladder { grid-template-columns: 1fr; } }
+
+      /* vice city bingo */
+      .bingo-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 7px; }
+      .bingo-cell {
+        background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; color: var(--ink);
+        padding: 10px 7px; font-weight: 600; font-size: .86rem; line-height: 1.3; min-height: 74px;
+        display: flex; align-items: center; justify-content: center; text-align: center;
+      }
+      .bingo-cell:hover { border-color: var(--muted); }
+      .bingo-cell.marked { background: rgba(62, 198, 184, .22); border-color: var(--teal); }
+      .bingo-cell.free { border-color: var(--gold); color: var(--gold); font-family: "Barlow Condensed", sans-serif; font-size: 1.05rem; letter-spacing: .05em; }
+      .bingo-cell.win { background: rgba(242, 179, 61, .3); border-color: var(--gold); }
+      @media (max-width: 640px) { .bingo-cell { font-size: .72rem; min-height: 64px; padding: 7px 4px; } }
+
       /* quiz */
       .quiz-q { font-size: 1.12rem; font-weight: 600; margin: 0 0 12px; }
       .quiz-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -701,31 +734,136 @@
       <!-- ================= PLAY ALONG ================= -->
       <section class="block" id="play" aria-label="Play along">
         <h2>Play Along</h2>
-        <p class="section-sub">The stuff chat argues about, in page form. Votes and scores live for your visit — bring the results to the next stream and hold Prez to them.</p>
+        <p class="section-sub">The Dojo plays the whole Twitch moment, not just this channel. GTA VI is running the platform right now — here's the live board, the Drops race, tonight's bingo card, and the calls the community makes before Prez goes live at 4 PM CT.</p>
+
+        <!-- Twitch pulse: what's hot platform-wide -->
+        <div class="card" style="margin-bottom:16px">
+          <h3>Twitch Pulse — GTA VI is the whole platform</h3>
+          <p class="data-line">Hours watched on Twitch, Nov 12–26 (last 14 days). GTA VI didn't just top the chart — it more than doubled everything else. Source: <a href="https://sullygnome.com/games/14" target="_blank" rel="noopener">SullyGnome</a>, fetched Nov 26, 2026.</p>
+          <div class="pulse-list">
+            <div class="pulse-row"><span class="pulse-name">Grand Theft Auto VI</span><div class="pulse-bar"><span style="width:100%"></span></div><span class="pulse-val">190.7M hrs</span></div>
+            <div class="pulse-row"><span class="pulse-name">Just Chatting</span><div class="pulse-bar"><span style="width:45%"></span></div><span class="pulse-val">85.6M hrs</span></div>
+            <div class="pulse-row"><span class="pulse-name">World of Warcraft</span><div class="pulse-bar"><span style="width:20%"></span></div><span class="pulse-val">38.1M hrs</span></div>
+            <div class="pulse-row"><span class="pulse-name">League of Legends</span><div class="pulse-bar"><span style="width:16%"></span></div><span class="pulse-val">31.2M hrs</span></div>
+            <div class="pulse-row"><span class="pulse-name">Counter-Strike</span><div class="pulse-bar"><span style="width:11%"></span></div><span class="pulse-val">20.5M hrs</span></div>
+          </div>
+          <div class="num-strip" style="margin:16px 0 0">
+            <div class="stat-tile"><div class="v hot">~3.3M</div><div class="k">Twitch peak viewers at launch — a game-category record. Trackers put it between 3.29M and 3.31M. (Streams Charts)</div></div>
+            <div class="stat-tile"><div class="v">420M</div><div class="k">Hours watched across Twitch, YouTube &amp; Kick in the first 7 days — nearly 3× the old first-week record. (GamesBeat, Nov 26)</div></div>
+            <div class="stat-tile"><div class="v">1,056</div><div class="k">Channels set a personal peak record streaming GTA VI in week one. (GamesBeat)</div></div>
+            <div class="stat-tile"><div class="v">639K</div><div class="k">Average viewers by Day 7, down from ~7.08M on release day — the launch spike is cooling fast. (Streams Charts)</div></div>
+          </div>
+        </div>
+
         <div class="grid-2">
+          <!-- Heist Board: GTA VI Twitch Drops -->
           <div class="card">
-            <h3>Tonight's run — what's the play?</h3>
-            <p style="color:var(--muted);margin-top:0">Prez's file says the robbery path is completely untouched: zero stores, zero lockboxes, zero safes. The people decide.</p>
-            <div id="pollBox">
-              <button class="poll-opt" type="button" data-poll><span class="fill"></span><span class="txt"><span>First-ever robbery route</span><span class="pct"></span></span></button>
-              <button class="poll-opt" type="button" data-poll><span class="fill"></span><span class="txt"><span>Collectible sweep — finish the map</span><span class="pct"></span></span></button>
-              <button class="poll-opt" type="button" data-poll><span class="fill"></span><span class="txt"><span>Story missions with Jason &amp; Lucia</span><span class="pct"></span></span></button>
-              <button class="poll-opt" type="button" data-poll><span class="fill"></span><span class="txt"><span>Vice Beach chaos — push past 2 stars</span><span class="pct"></span></span></button>
-            </div>
-            <p class="vote-note" id="pollNote">Tap one to cast your vote.</p>
+            <h3>The Heist Board — GTA VI Twitch Drops</h3>
+            <p class="data-line">The platform-wide Drops campaign runs <strong>Nov 18–30</strong> — it's live during every 4–6 PM stream this week, and then it's gone. Watch a participating GTA VI stream 60 minutes a day to climb the Bling ladder. Source: <a href="https://gamerant.com/gta-6-how-to-get-twitch-drops/" target="_blank" rel="noopener">GameRant</a>, Nov 24, 2026.</p>
+            <ul class="badge-ladder">
+              <li><span class="badge-day">Day 1</span><span>Purple Chain badge</span></li>
+              <li><span class="badge-day">Day 2</span><span>Bronze badge</span></li>
+              <li><span class="badge-day">Day 3</span><span>Silver badge</span></li>
+              <li><span class="badge-day">Day 4</span><span>Gold badge</span></li>
+              <li><span class="badge-day">Day 5</span><span>Diamond badge</span></li>
+              <li><span class="badge-day">Day 6</span><span>Miami Chain badge</span></li>
+            </ul>
+            <ul class="kv">
+              <li><span class="k">Days don't have to be consecutive — 1 hour a day counts</span><span class="v">Track in Drops Inventory</span></li>
+              <li><span class="k">Heist Collection — sub badges &amp; emotes (Prime subs don't count)</span><span class="v">3 new/gifted subs = all 6</span></li>
+              <li><span class="k">Golden Iguana — the rarest badge, all 12 collected</span><span class="v">6 Bling + 6 Heist</span></li>
+              <li><span class="k">Heist Trains — rewards for a completed Hype Train level on a GTA VI stream</span><span class="v">Nov 18–30</span></li>
+              <li><span class="k">Surprise free GTA VI Ultimate Edition codes drop daily — if you land one, claim by</span><span class="v">Dec 7, 11:59 PM PT</span></li>
+            </ul>
+            <p class="vote-note">Tonight's stream is a full 2 hours — that's a Bling day banked with time to spare. Who's finishing the ladder by Nov 30?</p>
           </div>
 
-          <div class="card">
-            <h3>Prediction: 3 stars tonight?</h3>
-            <p style="color:var(--muted);margin-top:0">In 18 times wanted, Prez has <strong>never</strong> gone past 2 stars — and still escaped 89% of the time. Does the streak break?</p>
-            <button class="pred-opt" type="button" id="predYes"><span class="fill"></span><span class="txt"><span>Yes — tonight's the night</span><span class="pct"></span></span></button>
-            <button class="pred-opt" type="button" id="predNo"><span class="fill"></span><span class="txt"><span>No — too slippery</span><span class="pct"></span></span></button>
-            <p class="vote-note" id="predNote">Lock in your call before the stream.</p>
-            <h3 style="margin-top:22px">Hood Millionaire — warm-up round</h3>
-            <div class="quiz-meta"><span id="quizStep">Question 1 of 4</span><span id="quizScore">Score: 0</span></div>
-            <div id="quizBody"></div>
-            <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+          <!-- Game Awards ballot -->
+          <div class="card" data-cpoll>
+            <h3>Game Awards Ballot — Game of the Year</h3>
+            <p class="data-line">The Game Awards land <strong>Thu, Dec 10</strong> at the Peacock Theater, and GTA VI leads every game with <strong>8 nominations</strong> — including Best Performance for Manni L. Perez, the voice of Lucia. Fan voting closes Dec 9, 9:00 PM ET. The Dojo calls it first: who takes GOTY?</p>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>Grand Theft Auto VI</span><span class="pct"></span></span></button>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>007 First Light</span><span class="pct"></span></span></button>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>Control Resonant</span><span class="pct"></span></span></button>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>Phantom Blade Zero</span><span class="pct"></span></span></button>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>Resident Evil Requiem</span><span class="pct"></span></span></button>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>The Legend of Zelda: Ocarina of Time (remake)</span><span class="pct"></span></span></button>
+            <p class="vote-note cpoll-note">Tap one to cast your vote. Control Resonant and Resident Evil Requiem carry 6 nominations each — GTA VI's real competition.</p>
           </div>
+        </div>
+
+        <!-- Vice City Bingo -->
+        <div class="card" style="margin-top:16px">
+          <h3>Vice City Bingo — tonight's card</h3>
+          <p class="data-line">Built from this week's actual GTA VI moments across Twitch: Kai Cenat drove straight into Vice City's painted “Looney Tunes Tunnel” mid-chase on Nov 24, IShowSpeed found his NPC twin during his 52-hour marathon, and streamers have reported PS5s crashing mid-game (cause unconfirmed — treat those as reports, not fact). Tap a square when it happens on stream. First full line calls bingo in chat.</p>
+          <div class="bingo-grid" id="bingoGrid" role="group" aria-label="Vice City bingo card">
+            <button class="bingo-cell" type="button">Drives into the fake painted tunnel</button>
+            <button class="bingo-cell" type="button">Police chase passes 5 minutes</button>
+            <button class="bingo-cell" type="button">New follower drops in</button>
+            <button class="bingo-cell" type="button">Stream crashes</button>
+            <button class="bingo-cell" type="button">NPC twin sighting</button>
+            <button class="bingo-cell" type="button">Prez dies 3 times in a row</button>
+            <button class="bingo-cell" type="button">Raid of 3–5 rolls in</button>
+            <button class="bingo-cell" type="button">Bank robbery attempt</button>
+            <button class="bingo-cell" type="button">Same jaywalker twice</button>
+            <button class="bingo-cell" type="button">Someone gifts a sub</button>
+            <button class="bingo-cell" type="button">Getaway on foot</button>
+            <button class="bingo-cell" type="button">Chat picks the getaway car</button>
+            <button class="bingo-cell free" type="button" aria-pressed="true">FREE SPACE</button>
+            <button class="bingo-cell" type="button">Lucia takes the lead</button>
+            <button class="bingo-cell" type="button">Jason takes the lead</button>
+            <button class="bingo-cell" type="button">Wanted level cleared clean</button>
+            <button class="bingo-cell" type="button">Hype Train starts</button>
+            <button class="bingo-cell" type="button">First fail of the night</button>
+            <button class="bingo-cell" type="button">Collectible sold for cash</button>
+            <button class="bingo-cell" type="button">Drive straight into the ocean</button>
+            <button class="bingo-cell" type="button">PS5 scare — fans in chat (reported this week)</button>
+            <button class="bingo-cell" type="button">Someone clips it</button>
+            <button class="bingo-cell" type="button">Rain rolls into Vice City</button>
+            <button class="bingo-cell" type="button">Full 2-hour stream, no early end</button>
+            <button class="bingo-cell" type="button">Prez says “Vice City!”</button>
+          </div>
+          <div class="row" style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px">
+            <p class="vote-note" id="bingoNote" style="margin:0">Card is live — the free space is already yours.</p>
+            <button class="chip-btn" type="button" id="bingoReset">Fresh card</button>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:16px">
+          <!-- Beat the Launch prediction -->
+          <div class="card" data-cpoll>
+            <h3>Beat the Launch — the Dojo prediction</h3>
+            <p class="data-line">The debate all over Twitch: GTA VI's 14-day lead is massive (190.7M hours vs Just Chatting's 85.6M), but average viewers fell from ~7.08M on release day to ~639K by Day 7. Next check is Monday — where does the category sit?</p>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>Still #1 — and still running away with it</span><span class="pct"></span></span></button>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>Still #1 — but the gap is closing</span><span class="pct"></span></span></button>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>Just Chatting takes the crown back</span><span class="pct"></span></span></button>
+            <p class="vote-note cpoll-note">Tap one to lock your call. Winner gets named on stream.</p>
+          </div>
+
+          <!-- You call the run -->
+          <div class="card" data-cpoll>
+            <h3>You Call the Run — tonight's story choice</h3>
+            <p class="data-line">GTA VI runs on two leads, Jason and Lucia, and Prez is in Chapter 3 tonight. One vote here decides how the 4 PM stream opens — the winning call gets played live and logged for the Dojo.</p>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>Lucia leads — loud approach</span><span class="pct"></span></span></button>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>Lucia leads — stealth approach</span><span class="pct"></span></span></button>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>Jason leads — loud approach</span><span class="pct"></span></span></button>
+            <button class="poll-opt" type="button" data-cpoll-opt><span class="fill"></span><span class="txt"><span>Jason leads — stealth approach</span><span class="pct"></span></span></button>
+            <p class="vote-note cpoll-note">Tap one to cast your vote — votes close when the stream starts.</p>
+          </div>
+        </div>
+
+        <!-- TwitchCon news strip -->
+        <div class="card" style="margin-top:16px">
+          <h3>Fresh off TwitchCon San Diego (Nov 13–15)</h3>
+          <p class="data-line" style="margin-bottom:10px">Announced at TwitchCon — announced means in testing or on the way, not live yet, unless noted. Source: <a href="https://www.invenglobal.com/articles/28680/twitch-plans-five-minute-clips-and-hosting-return-at-twitchcon-san-diego-2026" target="_blank" rel="noopener">Inven Global</a>.</p>
+          <ul class="kv">
+            <li><span class="k">Hosting returns — an offline channel can feature another live stream, with one shared chat</span><span class="v">Coming later in 2026</span></li>
+            <li><span class="k">Clips stretch to 5 minutes (from 60 seconds), and short clips can be combined</span><span class="v">In development</span></li>
+            <li><span class="k">Subs, Bits, Channel Points, Polls &amp; Predictions are open without Affiliate — live since May 13, 2026</span><span class="v">Live now</span></li>
+            <li><span class="k">Stream Rewind — pause and rewind a live stream — expanding to all viewers</span><span class="v">Expanding</span></li>
+            <li><span class="k">The zero-viewer story of launch week: Ibai dropped in on a GTA VI streamer sitting at 0 viewers — the stream hit 3,243 concurrent</span><span class="v">Nov 19</span></li>
+          </ul>
+          <p class="vote-note" style="margin-top:10px">Votes and the bingo card live for your visit only — bring the results to the 4 PM stream and hold Prez to them. Twitch numbers above are a Nov 26, 2026 snapshot from the sources named on each card; live viewership moves by the minute.</p>
         </div>
       </section>
 
@@ -1288,108 +1426,73 @@
           });
         });
 
-        /* ---------- Poll ---------- */
-        var pollVoted = false;
-        var pollBtns = Array.prototype.slice.call(document.querySelectorAll("[data-poll]"));
-        var pollCounts = pollBtns.map(function () { return 0; });
-        pollBtns.forEach(function (btn, i) {
-          btn.addEventListener("click", function () {
-            if (pollVoted) return;
-            pollVoted = true; pollCounts[i]++;
-            var total = pollCounts.reduce(function (a, b) { return a + b; }, 0);
-            pollBtns.forEach(function (b, j) {
-              b.disabled = true;
-              var pct = total ? Math.round((pollCounts[j] / total) * 100) : 0;
-              b.querySelector(".fill").style.width = pct + "%";
-              b.querySelector(".pct").textContent = pct + "% · " + pollCounts[j] + (pollCounts[j] === 1 ? " vote" : " votes");
-              if (j === i) b.classList.add("picked");
+        /* ---------- Community polls (per-visit tallies) ---------- */
+        document.querySelectorAll("[data-cpoll]").forEach(function (box) {
+          var btns = Array.prototype.slice.call(box.querySelectorAll("[data-cpoll-opt]"));
+          var counts = btns.map(function () { return 0; });
+          var voted = false;
+          var note = box.querySelector(".cpoll-note");
+          btns.forEach(function (btn, i) {
+            btn.addEventListener("click", function () {
+              if (voted) return;
+              voted = true; counts[i]++;
+              var total = counts.reduce(function (a, b) { return a + b; }, 0);
+              btns.forEach(function (b, j) {
+                b.disabled = true;
+                var pct = total ? Math.round((counts[j] / total) * 100) : 0;
+                b.querySelector(".fill").style.width = pct + "%";
+                b.querySelector(".pct").textContent = pct + "% \u00B7 " + counts[j] + (counts[j] === 1 ? " vote" : " votes");
+                if (j === i) b.classList.add("picked");
+              });
+              if (note) note.textContent = "Vote counted. Bring it to the 4 PM stream \u2014 the people decide.";
             });
-            document.getElementById("pollNote").textContent = "Vote locked in. Bring it to chat at 4 PM — Prez runs what the Dojo picks.";
           });
         });
 
-        /* ---------- Prediction ---------- */
-        var predDone = false, predYes = 0, predNo = 0;
-        function pred(which) {
-          if (predDone) return; predDone = true;
-          if (which === "yes") predYes++; else predNo++;
-          var total = predYes + predNo;
-          [["predYes", predYes], ["predNo", predNo]].forEach(function (pair) {
-            var el = document.getElementById(pair[0]);
-            var pct = Math.round((pair[1] / total) * 100);
-            el.disabled = true;
-            el.querySelector(".fill").style.width = pct + "%";
-            el.querySelector(".pct").textContent = pct + "%";
-          });
-          document.getElementById("predNote").textContent =
-            which === "yes" ? "Bold. Eighteen wanted levels of evidence say otherwise — see you at 4 PM." :
-            "Smart money. The man is a ghost at 2 stars and below.";
-        }
-        document.getElementById("predYes").addEventListener("click", function () { pred("yes"); });
-        document.getElementById("predNo").addEventListener("click", function () { pred("no"); });
-
-        /* ---------- Hood Millionaire quiz ---------- */
-        var QUESTIONS = [
-          { q: "GTA VI takes place in which state?", opts: ["San Andreas", "Leonida", "Liberty", "Alderney"], a: 1, why: "Leonida — Rockstar's take on Florida, with Vice City back at the center." },
-          { q: "Who are GTA VI's two protagonists?", opts: ["Jason & Lucia", "Michael & Trevor", "Niko & Roman", "Claude & Catalina"], a: 0, why: "Jason Duval and Lucia Caminos — the duo on every Leonida run." },
-          { q: "According to the Leonida File, what's Prez's favorite radio station?", opts: ["Channel X", "West Coast Classics", "V-Rock", "Non-Stop-Pop FM"], a: 2, why: "V-Rock, straight from his own stats screen. The Dodo pilot has taste." },
-          { q: "How long was Prez's longest police chase — that he still escaped?", opts: ["9:41", "15:03", "27:27", "41:12"], a: 2, why: "27 minutes, 27 seconds. One chase, zero cuffs. It's the clip of the file." }
-        ];
-        var qi = 0, score = 0, locked = false;
-        var quizBody = document.getElementById("quizBody");
-        var quizStep = document.getElementById("quizStep");
-        var quizScore = document.getElementById("quizScore");
-        var quizFeedback = document.getElementById("quizFeedback");
-        var LETTERS = ["A", "B", "C", "D"];
-        function renderQuiz() {
-          locked = false; quizFeedback.textContent = "";
-          if (qi >= QUESTIONS.length) {
-            quizStep.textContent = "Final question answered";
-            quizBody.innerHTML = "";
-            var done = document.createElement("p"); done.className = "quiz-q";
-            done.textContent = "You scored " + score + " of " + QUESTIONS.length + ". " +
-              (score === 4 ? "Perfect run — full Hood Millionaire. The Dojo salutes you." :
-               score >= 2 ? "Solid casework. The final answers are in the Leonida File above." :
-               "Case still open — the Leonida File above has every answer. Run it back.");
-            var again = document.createElement("button");
-            again.type = "button"; again.className = "btn btn-accent"; again.textContent = "Play again";
-            again.addEventListener("click", function () { qi = 0; score = 0; quizScore.textContent = "Score: 0"; renderQuiz(); });
-            quizBody.appendChild(done); quizBody.appendChild(again);
-            return;
+        /* ---------- Vice City Bingo (this visit only) ---------- */
+        (function () {
+          var grid = document.getElementById("bingoGrid");
+          if (!grid) return;
+          var cells = Array.prototype.slice.call(grid.querySelectorAll(".bingo-cell"));
+          var note = document.getElementById("bingoNote");
+          var lines = [];
+          var r, c, i;
+          for (r = 0; r < 5; r++) lines.push([r * 5, r * 5 + 1, r * 5 + 2, r * 5 + 3, r * 5 + 4]);
+          for (c = 0; c < 5; c++) lines.push([c, c + 5, c + 10, c + 15, c + 20]);
+          lines.push([0, 6, 12, 18, 24]); lines.push([4, 8, 12, 16, 20]);
+          function marked(idx) { return cells[idx].classList.contains("marked") || cells[idx].classList.contains("free"); }
+          function check() {
+            cells.forEach(function (cell) { cell.classList.remove("win"); });
+            var won = null;
+            lines.forEach(function (line) {
+              if (line.every(marked)) {
+                won = line;
+                line.forEach(function (idx) { cells[idx].classList.add("win"); });
+              }
+            });
+            var count = cells.filter(function (cell) { return cell.classList.contains("marked"); }).length;
+            if (won) note.textContent = "BINGO! Full line — call it in chat and claim your shout-out.";
+            else if (count) note.textContent = count + (count === 1 ? " square" : " squares") + " marked — keep watching, a line is coming.";
+            else note.textContent = "Card is live — the free space is already yours.";
           }
-          var item = QUESTIONS[qi];
-          quizStep.textContent = "Question " + (qi + 1) + " of " + QUESTIONS.length;
-          quizBody.innerHTML = "";
-          var q = document.createElement("p"); q.className = "quiz-q"; q.textContent = item.q;
-          var opts = document.createElement("div"); opts.className = "quiz-opts";
-          item.opts.forEach(function (label, j) {
-            var b = document.createElement("button");
-            b.type = "button"; b.className = "quiz-opt";
-            var letter = document.createElement("span"); letter.className = "letter"; letter.textContent = LETTERS[j];
-            b.appendChild(letter); b.appendChild(document.createTextNode(label));
-            b.addEventListener("click", function () { answer(b, j); });
-            opts.appendChild(b);
+          cells.forEach(function (cell) {
+            if (cell.classList.contains("free")) return;
+            cell.setAttribute("aria-pressed", "false");
+            cell.addEventListener("click", function () {
+              var on = cell.classList.toggle("marked");
+              cell.setAttribute("aria-pressed", on ? "true" : "false");
+              check();
+            });
           });
-          quizBody.appendChild(q); quizBody.appendChild(opts);
-        }
-        function answer(btn, j) {
-          if (locked) return; locked = true;
-          var item = QUESTIONS[qi];
-          var buttons = quizBody.querySelectorAll(".quiz-opt");
-          buttons.forEach(function (b, k) {
-            b.disabled = true;
-            if (k === item.a) b.classList.add("correct");
+          var reset = document.getElementById("bingoReset");
+          if (reset) reset.addEventListener("click", function () {
+            cells.forEach(function (cell) {
+              cell.classList.remove("marked", "win");
+              if (!cell.classList.contains("free")) cell.setAttribute("aria-pressed", "false");
+            });
+            check();
           });
-          if (j === item.a) { score++; quizFeedback.textContent = "Correct. " + item.why; }
-          else { btn.classList.add("wrong"); quizFeedback.textContent = "Not quite. " + item.why; }
-          quizScore.textContent = "Score: " + score;
-          var next = document.createElement("button");
-          next.type = "button"; next.className = "btn btn-teal"; next.style.marginTop = "10px";
-          next.textContent = qi === QUESTIONS.length - 1 ? "See final score" : "Next question";
-          next.addEventListener("click", function () { qi++; renderQuiz(); });
-          quizBody.appendChild(next);
-        }
-        renderQuiz();
+        })();
 
         /* ---------- Ocean sounds (generated surf — Web Audio, starts on tap) ---------- */
         var oceanBtn = document.getElementById("oceanBtn");
